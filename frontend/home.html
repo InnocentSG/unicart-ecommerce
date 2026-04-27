@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annurva E-commerce</title>
+    <link rel="stylesheet" href="homestyle.css">
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <img src="/Images/logo.png" alt="Uni Cart" class="logo-img">
+        <div class="location-wrapper" id="location-wrapper">
+            <img src="Images/location.png" alt="Location Icon" class="location-icon">
+            <span class="location-text" id="location-text">Fetching location...</span>
+            <div class="location-dropdown" id="location-dropdown">
+                <button id="use-current">Use Current Location</button>
+                <input id="autocomplete-input" type="text" placeholder="Enter your city">
+            </div>
+        </div>
+    </div>
+
+    <div class="search-location">
+        <input type="text" placeholder="Search products">
+    </div>
+
+    <a href="My Order/orders.html" target="_blank" class="category-btn">
+        My Order
+    </a>
+
+    <div class="header-right">
+        <a href="Cart/cart.html" class="cart">
+            <img src="/Images/cart.png" alt="Cart Icon">
+        </a>
+        <!-- Placeholder for login / user info -->
+<div id="header-right">
+    <a href="Login/auth.html" class="login-btn">
+        <img src="/Images/login.png" alt="Login Icon">
+    </a>
+</div>
+
+<!-- User Dropdown -->
+<div id="user-dropdown" class="menu-dropdown" style="display:none;">
+    <a href="/profile.html">Profile</a>
+    <a href="/orders.html">Orders</a>
+    <a href="/wishlist.html">Wishlist</a>
+    <a href="/help.html">Help & Support</a>
+    <a href="#" id="logout-btn">Logout</a>
+    <a href="/coupons.html">Coupons</a>
+    <a href="/notifications.html">Notifications</a>
+    <a href="/sellerlogin.html">Become a Seller</a>
+</div>
+
+
+        <!-- 3-dot menu -->
+        <div class="menu-wrapper">
+            <span class="menu-dots">&#x22EE;</span>
+            <div class="menu-dropdown">
+                <a href="#">Profile</a>
+                <a href="#">Orders</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Help & Support</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hamburger">&#9776;</div>
+</header>
+
+         <!-- Categories Bar -->
+    <nav class="categories-bar">
+        <div class="categories">
+            <span>All</span>
+            <span>Fashion</span>
+            <span>Mobile & Electronics</span>
+            <span>Appliances</span>
+            <span>Beauty & Home</span>
+            <span>Food & Health</span>
+            <span>Toys</span>
+            <span>Automotive Parts</span>
+            <span>Sports</span>
+            <span>Grocery</span>
+            <span>Books</span>
+            <span>Furniture</span>
+            <span>Home Items</span>
+        </div>
+    </nav>
+    
+
+
+    <!-- Poster/Ads Carousel -->
+    <section class="poster-carousel">
+        <div class="carousel-track">
+            <img src="/Images/poster1.png" alt="Fashion Poster">
+            <img src="/Images/poster 2.png" alt="Mobile Poster">
+            <img src="/Images/poster3.png" alt="Electronics Poster">
+            <img src="/Images/poster4.png" alt="Appliances Poster">
+            <img src="/Images/poster5.png" alt="Food Poster">
+            <img src="/Images/poster6.png" alt="Toys Poster">
+        </div>
+    </section>
+
+   <!-- Suggested For You -->
+<section class="product-section">
+    <h2>Suggested For You</h2>
+    <div class="product-track">
+        <!-- JS will inject product cards here -->
+    </div>
+</section>
+
+<!-- Previously Bought -->
+<section class="product-section">
+    <h2>Previously Bought</h2>
+    <div class="product-track">
+        <!-- JS will inject product cards here -->
+    </div>
+</section>
+
+<!-- Deals on Latest Tech -->
+<section class="product-section">
+    <h2>Deals on Latest Tech</h2>
+    <div class="product-track">
+        <!-- JS will inject product cards here -->
+    </div>
+</section>
+
+<!-- Top Deals in This Year -->
+<section class="product-section">
+    <h2>Top Deals in This Year</h2>
+    <div class="product-track">
+        <!-- JS will inject product cards here -->
+    </div>
+</section>
+
+
+    <!-- Multiple Ads Section -->
+    <section class="multiple-ads">
+        <img src="ad_discount.png" alt="Discount Ad">
+        <img src="ad_festival.jpg" alt="Festival Ad">
+        <img src="ad_cashback.png" alt="Cashback Ad">
+        <img src="ad_bankoffer.jpg" alt="Bank Offer Ad">
+    </section>
+
+    <!-- Stream Deals Section -->
+    <section class="stream-deals">
+        <video src="deal_fashion.mp4" muted loop autoplay></video>
+        <video src="deal_mobile.mp4" muted loop autoplay></video>
+        <video src="deal_food.mp4" muted loop autoplay></video>
+        <video src="deal_toys.mp4" muted loop autoplay></video>
+        <video src="deal_electronics.mp4" muted loop autoplay></video>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="featured-brands">
+        <h2>Featured Brands</h2>
+        <div class="brands-track">
+            <div class="brand-card"><img src="/Images/down brand poster.jpg"><h3>Safari</h3></div>
+            <div class="brand-card"><img src="brand2.jpg"><h3>Brand 2</h3></div>
+            <div class="brand-card"><img src="brand3.jpg"><h3>Brand 3</h3></div>
+            <div class="brand-card"><img src="brand4.jpg"><h3>Brand 4</h3></div>
+            <div class="brand-card"><img src="brand5.jpg"><h3>Brand 5</h3></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Annurva. All rights reserved.</p>
+    </footer>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="homefunction.js"></script>
+</body>
+</html>

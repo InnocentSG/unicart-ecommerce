@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Annurva</title>
+  <link rel="stylesheet" href="admin.css">
+  <script defer src="admin.js"></script>
+</head>
+<body>
+
+  <!-- LOGIN MODAL -->
+  <div id="login-modal" class="modal">
+    <div class="modal-inner">
+      <h2>Admin Login</h2>
+      <form id="login-form" autocomplete="off">
+        <label for="admin-id">Admin ID</label>
+        <input id="admin-id" type="text" required>
+
+        <label for="admin-pass">Password</label>
+        <input id="admin-pass" type="password" required>
+
+        <p id="login-error" class="form-error"></p>
+
+        <div class="modal-actions">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <div id="admin-panel" class="admin-panel hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h3>Annurva Admin</h3>
+      </div>
+      <ul class="nav-list">
+        <li class="nav-item active" data-tab="dashboard">Dashboard</li>
+        <li class="nav-item" data-tab="products">Products</li>
+        <li class="nav-item" data-tab="users">Users</li>
+        <li class="nav-item" data-tab="reviews">Reviews</li>
+        <li class="nav-item" data-tab="analytics">Analytics</li>
+        <li class="nav-item" data-tab="settings">Settings</li>
+      </ul>
+      <button id="logout-btn" class="btn-logout">Logout</button>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <h1 id="page-title">Dashboard</h1>
+        <input id="global-search" type="search" placeholder="Search...">
+      </header>
+
+      <!-- TABS -->
+      <section id="tab-content">
+        <!-- Dashboard -->
+        <div id="dashboard" class="tab-pane active">
+          <h2>Dashboard Overview</h2>
+          <p>Summary cards and analytics here.</p>
+        </div>
+
+        <!-- Products -->
+        <div id="products" class="tab-pane">
+          <h2>Products</h2>
+          <button id="add-product-btn">Add Product</button>
+          <table id="products-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Users -->
+        <div id="users" class="tab-pane">
+          <h2>Users</h2>
+          <button id="add-user-btn">Add User</button>
+          <table id="users-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Reviews -->
+        <div id="reviews" class="tab-pane">
+          <h2>Reviews</h2>
+          <button id="add-review-btn">Add Review</button>
+          <table id="reviews-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Product</th>
+                <th>User</th>
+                <th>Rating</th>
+                <th>Comment</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <!-- Analytics -->
+        <div id="analytics" class="tab-pane">
+          <h2>Analytics</h2>
+          <p>Charts and reports here.</p>
+        </div>
+
+        <!-- Settings -->
+        <div id="settings" class="tab-pane">
+          <h2>Settings</h2>
+          <p>Admin settings and API keys here.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div id="product-modal" class="modal hidden">
+    <div class="modal-inner scrollable-modal">
+      <h2>Add / Edit Product</h2>
+      <form id="product-form">
+        <label for="product-name">Name</label>
+        <input type="text" id="product-name" name="name" required>
+
+        <label for="product-description">Description</label>
+        <textarea id="product-description" name="description" rows="3" required></textarea>
+
+        <label for="product-category">Category</label>
+        <select id="product-category" name="category" required>
+          <option value="">Select Category</option>
+          <option>All Fashion</option>
+          <option>Mobile & Electronics</option>
+          <option>Appliances</option>
+          <option>Beauty & Home</option>
+          <option>Food & Health</option>
+          <option>Toys</option>
+          <option>Automotive Parts</option>
+          <option>Sports</option>
+          <option>Grocery</option>
+          <option>Books</option>
+          <option>Furniture</option>
+          <option>Home Items</option>
+          <option>Other</option>
+        </select>
+
+        <label for="product-price">Price</label>
+        <input type="number" id="product-price" name="price" required>
+
+        <label for="product-stock">Stock</label>
+        <input type="number" id="product-stock" name="stock" required>
+
+        <label for="product-discount">Discount (%)</label>
+        <input type="number" id="product-discount" name="discount" min="0" max="100">
+
+        <label for="product-images">Images (max 5)</label>
+        <input id="product-images" type="file" accept="image/*" multiple>
+        <div id="image-preview" class="image-preview"></div>
+
+        <label for="product-spec">Specification</label>
+        <textarea id="product-spec" name="specification" rows="2"></textarea>
+
+        <label for="variant-option">Variants</label>
+        <select id="variant-option" name="hasVariant">
+          <option value="no">No</option>
+          <option value="yes">Yes</option>
+        </select>
+
+        <div id="variant-fields" style="display: none;">
+          <label>Variant Name (Size/Color/Model)</label>
+          <input type="text" name="variant-name" placeholder="e.g., Size, Color">
+          <label>Variant Values (comma separated)</label>
+          <input type="text" name="variant-values" placeholder="e.g., S,M,L or Red,Blue">
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" class="close-modal" data-target="product-modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- USER MODAL -->
+  <div id="user-modal" class="modal hidden">
+    <div class="modal-inner scrollable-modal">
+      <h2>Add / Edit User</h2>
+      <form id="user-form" autocomplete="off">
+        <label for="user-id">User ID</label>
+        <input id="user-id" name="id" type="text" placeholder="User ID">
+
+        <label for="user-name">Name</label>
+        <input id="user-name" name="name" type="text" placeholder="Name" required>
+
+        <label for="user-email">Email</label>
+        <input id="user-email" name="email" type="email" placeholder="Email" required>
+
+        <label for="user-phone">Phone</label>
+        <input id="user-phone" name="phone" type="text" placeholder="Phone">
+
+        <div class="modal-actions">
+          <button type="submit">Save User</button>
+          <button type="button" class="close-modal" data-target="user-modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- REVIEW MODAL -->
+  <div id="review-modal" class="modal hidden">
+    <div class="modal-inner scrollable-modal">
+      <h2>Add / Edit Review</h2>
+      <form id="review-form">
+        <label for="review-product">Product</label>
+        <input type="text" id="review-product" name="product" required>
+
+        <label for="review-user">User</label>
+        <input type="text" id="review-user" name="user" required>
+
+        <label for="review-rating">Rating</label>
+        <input type="number" id="review-rating" name="rating" min="1" max="5" required>
+
+        <label for="review-comment">Comment</label>
+        <textarea id="review-comment" name="comment" rows="2"></textarea>
+
+        <div class="modal-actions">
+          <button type="submit">Save</button>
+          <button type="button" class="close-modal" data-target="review-modal">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

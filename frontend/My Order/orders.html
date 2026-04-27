@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Orders</title>
+  <link rel="stylesheet" href="orders.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    My Orders
+  </header>
+
+  <!-- Search + Filter -->
+  <div class="search-filter-bar">
+    <input type="text" id="searchBox" placeholder="Search your orders...">
+    <select id="filterBox">
+      <option value="all">All</option>
+      <option value="delivered">Delivered</option>
+      <option value="pending">Pending</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+  </div>
+
+  <!-- Orders Container -->
+  <div class="orders-container" id="ordersList">
+    <!-- Example order -->
+    <div class="order-card" data-status="delivered">
+      <img src="images/product1.jpg" alt="Product">
+      <div class="order-details">
+        <h3>Wireless Headphones</h3>
+        <p>Delivered on: <span>21 Sep 2025</span></p>
+        <p class="status delivered">Delivered</p>
+      </div>
+    </div>
+
+    <div class="order-card" data-status="pending">
+      <img src="images/product2.jpg" alt="Product">
+      <div class="order-details">
+        <h3>Smartphone</h3>
+        <p>Expected delivery: <span>28 Sep 2025</span></p>
+        <p class="status pending">Pending</p>
+      </div>
+    </div>
+
+    <div class="order-card" data-status="cancelled">
+      <img src="images/product3.jpg" alt="Product">
+      <div class="order-details">
+        <h3>Laptop Backpack</h3>
+        <p>Cancelled on: <span>15 Sep 2025</span></p>
+        <p class="status cancelled">Cancelled</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 YourSite | All rights reserved
+  </footer>
+
+  <script src="orders.js"></script>
+</body>
+</html>

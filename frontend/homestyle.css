@@ -1,0 +1,371 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ================= Header ================= */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 60px;
+    background: linear-gradient(to right, #c26ef6, #791dab, #c26ef6);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 30px;
+    display: block;
+    border-radius: 5px;
+}
+
+.location-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.location-icon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+.location-text {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.location-dropdown {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.location-dropdown input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+.location-dropdown button {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background: #e363fa;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.location-wrapper.active .location-dropdown {
+    display: block;
+}
+
+/* Search */
+.search-location {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.search-location input {
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Category Button */
+.category-btn {
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Header Right */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-right img {
+    height: 20px;
+    display: block;
+}
+
+.menu-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-dots {
+    font-size: 20px;
+    color: #a4a4a4;
+}
+
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 150px;
+    z-index: 1002;
+}
+
+.menu-dropdown a {
+    display: block;
+    padding: 10px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-dropdown a:hover {
+    background: linear-gradient(to right, #ff4d4d, #ff9900);
+    color: #fff;
+    border-radius: 5px;
+}
+
+.menu-wrapper.active .menu-dropdown {
+    display: block;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .header-right {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+    .search-location input {
+        width: 70%;
+    }
+    #user-name-btn {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+}
+
+/* ================= Categories Bar ================= */
+.categories-bar {
+    position: sticky;
+    top: 60px;
+    background: linear-gradient(to right, #c26ef6, #791dab, #c26ef6);
+    overflow-x: auto;
+    justify-content: space-evenly;
+    white-space: nowrap;
+    padding: 10px 0;
+    z-index: 999;
+}
+
+.categories-bar .categories span {
+    display: inline-block;
+    margin: 0 15px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ================= Poster Carousel ================= */
+.poster-carousel {
+    margin-top: 70px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.poster-carousel .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.poster-carousel img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* ================= Product Sections ================= */
+.product-section {
+    padding: 20px;
+    background-color: #b871e1;
+    margin: 6px;
+    border-radius: 10px;
+}
+
+.product-section h2 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Swipable product track */
+.product-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+}
+
+.product-track::-webkit-scrollbar {
+    display: none;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(to bottom right, #ffcccc, #ffe6cc);
+    border-radius: 8px;
+    padding: 10px;
+    height: 300px;
+    text-align: center;
+    flex: 0 0 auto; /* prevent shrinking */
+    scroll-snap-align: start;
+    min-width: 180px;
+    max-width: 220px;
+}
+
+.product-card img {
+    height: 60%;
+    width: auto;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.product-card .price {
+    font-weight: bold;
+    color: #ff4d4d;
+    margin-bottom: 5px;
+}
+
+.product-card h3 {
+    font-size: 16px;
+}
+
+/* ================= Multiple Ads ================= */
+.multiple-ads {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.multiple-ads img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ================= Stream Deals ================= */
+.stream-deals {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.stream-deals video {
+    width: 100%;
+    border-radius: 8px;
+}
+
+/* ================= Featured Brands ================= */
+.featured-brands {
+    overflow: hidden;
+    padding: 20px;
+}
+
+.brands-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.brand-card {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.brand-card img {
+    width: 650px;
+    height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.brand-card h3 {
+    font-size: 14px;
+}
+
+/* ================= Footer ================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to right, #ff4de7, #ca39d4);
+    color: #fff;
+}
+
+/* ================= Responsive Grids ================= */
+@media (max-width: 1200px) {
+    .multiple-ads {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .stream-deals {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-card img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .multiple-ads,
+    .stream-deals {
+        grid-template-columns: 1fr;
+    }
+}

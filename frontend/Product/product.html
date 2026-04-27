@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="product.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+    <h1 id="product-name">Loading...</h1>
+  </header>
+
+  <main class="product-container">
+    <!-- Left: Images -->
+    <div class="images-section">
+      <div class="main-image" id="main-image-container">
+        <img id="main-image" src="" alt="Product Image">
+        <button id="save-product" class="wishlist-btn">💖</button>
+      </div>
+      <div class="thumbnail-images" id="thumbnail-images">
+        <!-- Thumbnails appended dynamically -->
+      </div>
+    </div>
+
+    <!-- Right: Details -->
+    <div class="details-section">
+      <h2 id="product-name-detail">Loading...</h2>
+      <p class="price" id="product-price">₹0</p>
+      <p class="discount" id="product-discount"></p>
+      <p class="category" id="product-category"></p>
+      <p class="box" id="product-box"></p>
+      <p class="description" id="product-description"></p>
+      <p class="purchases" id="product-purchases"></p>
+
+      <div class="buttons">
+        <button id="buy-now">Buy Now</button>
+        <button id="add-to-cart">Add to Cart</button>
+      </div>
+
+      <div class="reviews" id="product-comments">
+        <h3>Customer Reviews</h3>
+        <!-- Comments inserted dynamically -->
+      </div>
+
+      <!-- Review form for purchased users -->
+      <div class="review-form" id="review-form" style="display:none;">
+        <h3>Submit Your Review</h3>
+        <input type="text" id="review-text" placeholder="Write your review">
+        <input type="number" id="review-rating" placeholder="Rating (1-5)" min="1" max="5">
+        <button id="submit-review">Submit</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Related Products Section -->
+  <section class="related-products">
+    <h3>Related Products</h3>
+    <div class="related-carousel" id="related-products">
+      <!-- Related products appended dynamically -->
+    </div>
+  </section>
+
+  <script src="product.js"></script>
+</body>
+</html>
